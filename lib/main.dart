@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider<TopicsModel>(
       create: (context) => TopicsModel.empty(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'My arXiv',
         theme: ThemeData(
           //TODO: font type for the entire project

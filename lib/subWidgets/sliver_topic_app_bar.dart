@@ -8,12 +8,12 @@ class SliverTopicAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverAppBar(
       elevation: 10.0,
-      expandedHeight: 150.0,
+      expandedHeight: 120.0,
       flexibleSpace: FlexibleSpaceBar(
         titlePadding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 15.0),
         centerTitle: true,
         title: Text(
-          '${topic.minorTitle}(${topic.subjectCode})',
+          '${topic.minorTitle}',
           softWrap: true,
         ),
       ),

@@ -133,7 +133,7 @@ class ArxivBrain {
       ['cs.HC', 'Human-Computer Interaction'],
       ['cs.IR', 'Information Retrieval'],
       ['cs.IT', 'Information Theory'],
-      ['cs.LG', 'Learning'],
+      ['cs.LG', 'Machine Learning'],
       ['cs.LO', 'Logic in Computer Science'],
       ['cs.MA', 'Multiagent Systems'],
       ['cs.MM', 'Multimedia'],
