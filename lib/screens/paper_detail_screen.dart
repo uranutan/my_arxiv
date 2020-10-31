@@ -34,7 +34,7 @@ class PaperDetailScreen extends StatelessWidget {
                   "Check out this paper by ${tappedPaper.displayAuthorsLong}. \n\n\n"
                   "${tappedPaper.formattedTitle} \n\n\n"
                   "Here is the link ${tappedPaper.arXivID}.",
-                  subject: 'A new paper on arXiv worthy a look ');
+                  subject: 'A new paper on arXiv ');
             },
           )
         ],
