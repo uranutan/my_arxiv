@@ -50,15 +50,17 @@ class _PaperListScreenState extends State<PaperListScreen> {
     return allSliverList;
   }
 
-// TODO: displose(), check mounted()
   Future _loadNextPage() async {
     List<Paper> nextPage =
         await fetchSubjectCode(widget.topic.subjectCode, page);
-    setState(() {
-      paperList.addAll(nextPage);
-      isLoading = false;
-      page++;
-    });
+
+    if (this.mounted) {
+      setState(() {
+        paperList.addAll(nextPage);
+        isLoading = false;
+        page++;
+      });
+    }
     //TODO: dealing with end of the list
   }
 
@@ -84,9 +86,12 @@ class _PaperListScreenState extends State<PaperListScreen> {
                   if (!isLoading &&
                       scrollDetail.pixels >= scrollDetail.maxScrollExtent) {
                     //curious, changing from == to >= did all the trick, dunno why
-                    setState(() {
-                      isLoading = true;
-                    });
+
+                    if (this.mounted) {
+                      setState(() {
+                        isLoading = true;
+                      });
+                    }
                     _loadNextPage();
                   }
                   return true;
