@@ -31,8 +31,8 @@ class PaperDetailScreen extends StatelessWidget {
             icon: Icon(Icons.share),
             onPressed: () {
               Share.share(
-                  "Check out this paper by ${tappedPaper.displayAuthorsLong}. \n"
-                  "${tappedPaper.formattedTitle} \n"
+                  "A nice paper on arXiv by ${tappedPaper.displayAuthorsLong}. \n\n"
+                  "${tappedPaper.formattedTitle} \n\n"
                   "Here is the link ${tappedPaper.arXivID}.\n\n"
                   "Send by My arXiv app. ",
                   subject: 'A nice paper on arXiv ');
