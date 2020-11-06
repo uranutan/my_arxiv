@@ -9,7 +9,7 @@ class PaperDetailScreen extends StatelessWidget {
   PaperDetailScreen({this.tappedPaper});
 
   final Paper tappedPaper;
-
+  GlobalKey _shareButton = GlobalKey();
   @override
   Widget build(BuildContext context) {
     final String pdfURL = tappedPaper.pdfLink();
@@ -28,14 +28,20 @@ class PaperDetailScreen extends StatelessWidget {
             },
           ),
           IconButton(
+            key: _shareButton,
             icon: Icon(Icons.share),
             onPressed: () {
+              final RenderBox box =
+                  _shareButton.currentContext.findRenderObject();
+
               Share.share(
-                  "A nice paper on arXiv by ${tappedPaper.displayAuthorsLong}. \n\n"
-                  "${tappedPaper.formattedTitle} \n\n"
-                  "Here is the link ${tappedPaper.arXivID}.\n\n"
-                  "Send by My arXiv app. ",
-                  subject: 'A nice paper on arXiv ');
+                "A nice paper on arXiv by ${tappedPaper.displayAuthorsLong}. \n\n"
+                "${tappedPaper.formattedTitle} \n\n"
+                "Here is the link ${tappedPaper.arXivID}.\n\n"
+                "Send by My arXiv app. ",
+                subject: 'A nice paper on arXiv ',
+                sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size,
+              );
             },
           )
         ],
