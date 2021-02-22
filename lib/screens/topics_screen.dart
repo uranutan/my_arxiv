@@ -10,6 +10,7 @@ import '../services/local_storage.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'intro_screen.dart';
+import '../services/myFunctions.dart';
 
 class TopicsScreen extends StatefulWidget {
   @override
@@ -107,42 +108,60 @@ class _MyTopicContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 30.0, top: 50.0),
-            child: Text(
-              'My arXiv',
-              style: kTextStyleHeading,
-            ),
-          ),
-          Opacity(
-            opacity: loading == true ? 0 : 1,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 30.0, top: 10.0),
-              child: Text(
-                '$topicsLength topics',
-                style: TextStyle(fontSize: 20.0, color: CupertinoColors.white),
-              ),
-            ),
-          ),
-          SizedBox(height: 50.0),
-          Expanded(
-            child: Container(
-              child: MyTopicsReorderableArea(),
-              padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
-              decoration: BoxDecoration(
-                color: kOffWhite,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20.0),
-                  topRight: Radius.circular(20.0),
-                ),
-              ),
-            ),
-          )
-        ],
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Padding(
+        padding: const EdgeInsets.only(left: 30.0, top: 50.0),
+        child: Text(
+          'My arXiv',
+          style: kTextStyleHeading,
+        ),
       ),
-    );
+      Opacity(
+        opacity: loading == true ? 0 : 1,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 30.0, top: 10.0),
+          child: Text(
+            '$topicsLength topics',
+            style: TextStyle(fontSize: 20.0, color: CupertinoColors.white),
+          ),
+        ),
+      ),
+      SizedBox(height: 10.0),
+      GestureDetector(
+        onTap: () {
+          print('tapped');
+
+          launchURL(
+              "https://ms.unimelb.edu.au/__data/assets/pdf_file/0004/3597079/Jesper-Ipsen_Stability-and-complexity.pdf");
+        },
+        child: Container(
+          child: Text(
+            'New PhD Position in Random Matrix Theory at Uni Melbourne, Australia',
+            style: TextStyle(fontSize: 14.0, color: CupertinoColors.white),
+          ),
+          padding: const EdgeInsets.only(left: 30.0, top: 8.0, bottom: 8.0),
+          decoration: BoxDecoration(
+            color: Colors.deepOrangeAccent,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20.0),
+              topRight: Radius.circular(20.0),
+            ),
+          ),
+        ),
+      ),
+      Expanded(
+        child: Container(
+          child: MyTopicsReorderableArea(),
+          padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
+          decoration: BoxDecoration(
+            color: kOffWhite,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20.0),
+              topRight: Radius.circular(20.0),
+            ),
+          ),
+        ),
+      )
+    ]));
   }
 }
