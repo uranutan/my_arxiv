@@ -116,27 +116,6 @@ class _MyTopicContent extends StatelessWidget {
         ),
       ),
       SizedBox(height: 80.0),
-      // GestureDetector(
-      //   onTap: () {
-      //     print('tapped');
-      //
-      //     launchURL("https://austms.org.au/phd-randommatrixtheory/");
-      //   },
-      //   child: Container(
-      //     child: Text(
-      //       'New PhD Position in Random Matrix Theory at Uni Melbourne, Australia',
-      //       style: TextStyle(fontSize: 14.0, color: CupertinoColors.white),
-      //     ),
-      //     padding: const EdgeInsets.only(left: 30.0, top: 8.0, bottom: 8.0),
-      //     decoration: BoxDecoration(
-      //       color: Colors.deepOrangeAccent,
-      //       borderRadius: BorderRadius.only(
-      //         topLeft: Radius.circular(20.0),
-      //         topRight: Radius.circular(20.0),
-      //       ),
-      //     ),
-      //   ),
-      // ),
       Expanded(
         child: Container(
           child: MyTopicsReorderableArea(),

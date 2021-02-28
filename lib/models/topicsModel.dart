@@ -51,4 +51,7 @@ class TopicsModel extends ChangeNotifier {
     notifyListeners();
     writeTopics();
   }
+
+  //TODO: given a subject code return a hashtag topic Label
+  String topicHashTag(String subjectCode) {}
 }
