@@ -6,6 +6,8 @@ const kArXivBlue = Color(0xFF3c48f4);
 const kArXivGrey = Color(0xFF424242);
 const kOffWhite = Color(0xFFfafafa);
 
+const kPeachRed = Color(0xFFdd5954);
+
 const kMoreClassyRed = Color(0xFFb31b1b);
 
 const kDropDownMenuTextStyle = TextStyle(

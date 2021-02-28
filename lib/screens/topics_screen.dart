@@ -10,7 +10,7 @@ import '../services/local_storage.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'intro_screen.dart';
-import '../services/myFunctions.dart';
+import '../subWidgets/job_board.dart';
 
 class TopicsScreen extends StatefulWidget {
   @override
@@ -68,10 +68,14 @@ class _TopicsScreenState extends State<TopicsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final int topicsLength = Provider.of<TopicsModel>(context).listLength;
-    List<Widget> stackList = [_MyTopicContent(loading, topicsLength)];
+    // final int topicsLength = Provider.of<TopicsModel>(context).listLength;
+    List<Widget> stackList = [
+      // _MyTopicContent(),
+      JobBoard(),
+      _MyTopicContent(),
+    ];
 
-    if (firstSeen && topicsLength == 0) {
+    if (firstSeen) {
       stackList.addAll([
         OverLayWithHole(
             positionTop: positionTop ?? 0.0, positionLeft: positionLeft ?? 0.0),
@@ -100,11 +104,6 @@ class _TopicsScreenState extends State<TopicsScreen> {
 }
 
 class _MyTopicContent extends StatelessWidget {
-  _MyTopicContent(this.loading, this.topicsLength);
-
-  final bool loading;
-  final int topicsLength;
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -116,39 +115,28 @@ class _MyTopicContent extends StatelessWidget {
           style: kTextStyleHeading,
         ),
       ),
-      Opacity(
-        opacity: loading == true ? 0 : 1,
-        child: Padding(
-          padding: const EdgeInsets.only(left: 30.0, top: 10.0),
-          child: Text(
-            '$topicsLength topics',
-            style: TextStyle(fontSize: 20.0, color: CupertinoColors.white),
-          ),
-        ),
-      ),
-      SizedBox(height: 10.0),
-      GestureDetector(
-        onTap: () {
-          print('tapped');
-
-          launchURL(
-              "https://ms.unimelb.edu.au/__data/assets/pdf_file/0004/3597079/Jesper-Ipsen_Stability-and-complexity.pdf");
-        },
-        child: Container(
-          child: Text(
-            'New PhD Position in Random Matrix Theory at Uni Melbourne, Australia',
-            style: TextStyle(fontSize: 14.0, color: CupertinoColors.white),
-          ),
-          padding: const EdgeInsets.only(left: 30.0, top: 8.0, bottom: 8.0),
-          decoration: BoxDecoration(
-            color: Colors.deepOrangeAccent,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20.0),
-              topRight: Radius.circular(20.0),
-            ),
-          ),
-        ),
-      ),
+      SizedBox(height: 80.0),
+      // GestureDetector(
+      //   onTap: () {
+      //     print('tapped');
+      //
+      //     launchURL("https://austms.org.au/phd-randommatrixtheory/");
+      //   },
+      //   child: Container(
+      //     child: Text(
+      //       'New PhD Position in Random Matrix Theory at Uni Melbourne, Australia',
+      //       style: TextStyle(fontSize: 14.0, color: CupertinoColors.white),
+      //     ),
+      //     padding: const EdgeInsets.only(left: 30.0, top: 8.0, bottom: 8.0),
+      //     decoration: BoxDecoration(
+      //       color: Colors.deepOrangeAccent,
+      //       borderRadius: BorderRadius.only(
+      //         topLeft: Radius.circular(20.0),
+      //         topRight: Radius.circular(20.0),
+      //       ),
+      //     ),
+      //   ),
+      // ),
       Expanded(
         child: Container(
           child: MyTopicsReorderableArea(),
@@ -159,6 +147,13 @@ class _MyTopicContent extends StatelessWidget {
               topLeft: Radius.circular(20.0),
               topRight: Radius.circular(20.0),
             ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black26,
+                blurRadius: 3.0,
+                spreadRadius: 3.0,
+              ),
+            ],
           ),
         ),
       )
