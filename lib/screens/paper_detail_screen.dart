@@ -99,7 +99,6 @@ class PaperDetailScreen extends StatelessWidget {
                     ]),
 
                 SizedBox(height: 20.0),
-                Text(tappedPaper.primaryCat),
                 Text(
                   'Abstract',
                   style: TextStyle(

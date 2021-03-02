@@ -21,14 +21,14 @@ class _JobBoardState extends State<JobBoard> {
             // width: double.infinity,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Icon(
                   Icons.fiber_new_rounded,
                   color: Colors.yellowAccent,
                   size: 32.0,
                 ),
-                SizedBox(width: 8.0),
+                // SizedBox(width: 8.0),
                 GestureDetector(
                   onTap: () {
                     launchURL("https://austms.org.au/phd-randommatrixtheory/");
@@ -43,7 +43,7 @@ class _JobBoardState extends State<JobBoard> {
                     ),
                   ),
                 ),
-                SizedBox(width: 8.0),
+                // SizedBox(width: 8.0),
                 GestureDetector(
                   onTap: () {
                     setState(() {
