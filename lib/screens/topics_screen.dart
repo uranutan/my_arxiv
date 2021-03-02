@@ -47,8 +47,6 @@ class _TopicsScreenState extends State<TopicsScreen> {
   Future _numberOfTimesSeen() async {
     final SharedPreferences seen = await SharedPreferences.getInstance();
     final int seenTimes = seen.getInt('SeenTimes') ?? 0;
-    print(seenTimes);
-
     if (seenTimes == 0) {
       firstSeen = true;
     }
@@ -72,12 +70,10 @@ class _TopicsScreenState extends State<TopicsScreen> {
   Widget build(BuildContext context) {
     final int topicsLength = Provider.of<TopicsModel>(context).listLength;
     List<Widget> stackList = [
-      // _MyTopicContent(),
+      // _MyTopicContent(60.0),
       JobBoard(),
-      _MyTopicContent(),
+      _MyTopicContent(60.0), //80
     ];
-
-    print(firstSeen);
 
     if (firstSeen && topicsLength == 0) {
       stackList.addAll([
@@ -108,6 +104,10 @@ class _TopicsScreenState extends State<TopicsScreen> {
 }
 
 class _MyTopicContent extends StatelessWidget {
+  _MyTopicContent(this.emptySpace);
+
+  final double emptySpace;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -119,7 +119,7 @@ class _MyTopicContent extends StatelessWidget {
           style: kTextStyleHeading,
         ),
       ),
-      SizedBox(height: 80.0),
+      SizedBox(height: emptySpace),
       Expanded(
         child: Container(
           child: MyTopicsReorderableArea(),
