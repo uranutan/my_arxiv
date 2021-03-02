@@ -47,6 +47,8 @@ class _TopicsScreenState extends State<TopicsScreen> {
   Future _numberOfTimesSeen() async {
     final SharedPreferences seen = await SharedPreferences.getInstance();
     final int seenTimes = seen.getInt('SeenTimes') ?? 0;
+    print(seenTimes);
+
     if (seenTimes == 0) {
       firstSeen = true;
     }
@@ -68,14 +70,16 @@ class _TopicsScreenState extends State<TopicsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final int topicsLength = Provider.of<TopicsModel>(context).listLength;
+    final int topicsLength = Provider.of<TopicsModel>(context).listLength;
     List<Widget> stackList = [
       // _MyTopicContent(),
       JobBoard(),
       _MyTopicContent(),
     ];
 
-    if (firstSeen) {
+    print(firstSeen);
+
+    if (firstSeen && topicsLength == 0) {
       stackList.addAll([
         OverLayWithHole(
             positionTop: positionTop ?? 0.0, positionLeft: positionLeft ?? 0.0),
