@@ -70,9 +70,8 @@ class _TopicsScreenState extends State<TopicsScreen> {
   Widget build(BuildContext context) {
     final int topicsLength = Provider.of<TopicsModel>(context).listLength;
     List<Widget> stackList = [
-      // _MyTopicContent(60.0),
-      JobBoard(),
-      _MyTopicContent(60.0), //80
+      // JobBoard(),
+      _MyTopicContent(50.0), //80
     ];
 
     if (firstSeen && topicsLength == 0) {
