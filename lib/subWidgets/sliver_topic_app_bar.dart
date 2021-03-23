@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/topic.dart';
+import '../subWidgets/search_bar.dart';
 
 class SliverTopicAppBar extends StatelessWidget {
   SliverTopicAppBar(this.topic);
@@ -12,10 +13,11 @@ class SliverTopicAppBar extends StatelessWidget {
       flexibleSpace: FlexibleSpaceBar(
         titlePadding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 15.0),
         centerTitle: true,
-        title: Text(
-          '${topic.minorTitle}',
-          softWrap: true,
-        ),
+        title: Container(
+            height: 36.0,
+            width: double.infinity,
+            //needs a controller managed by its ancestor
+            child: SearchBar(topic.subjectCode)),
       ),
       floating: true,
       pinned: false,
@@ -23,3 +25,4 @@ class SliverTopicAppBar extends StatelessWidget {
     );
   }
 }
+// search in ${topic.minorTitle}

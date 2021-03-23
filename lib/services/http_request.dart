@@ -3,8 +3,6 @@ import '../models/paper.dart';
 import 'package:xml/xml.dart';
 
 Future<List<Paper>> fetchSubjectCode(subjectCode, page) async {
-  //TODO request by date;
-  // String openSearchURI = "http://a9.com/-/spec/opensearch/1.1/";
   String arxivURI = "http://arxiv.org/schemas/atom";
 
   var url =
