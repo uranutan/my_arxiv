@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const kArXivRed = Color(0xFFb31b1b);
+const kArXivRed = Color(0xFFad1a1a);
 const kArXivBlack = Color(0xFF222222);
 const kArXivBlue = Color(0xFF3c48f4);
 const kArXivGrey = Color(0xFF424242);
