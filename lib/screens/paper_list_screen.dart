@@ -71,7 +71,7 @@ class _PaperListScreenState extends State<PaperListScreen> {
     displaySliverList.addAll(turnPaperListToSlivers(paperList));
 
     return Scaffold(
-      backgroundColor: kAccentRed,
+      backgroundColor: kWineRed,
       body: SafeArea(
         child: Column(
           children: [

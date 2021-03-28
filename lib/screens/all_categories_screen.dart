@@ -13,12 +13,15 @@ class AllCategoriesScreen extends StatelessWidget {
     final List<dynamic> subTitles = allArxivCategories.values.toList();
 
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: kOffWhite,
         body: CustomScrollView(slivers: [
           SliverAppBar(
             elevation: 5.0,
             title: Text(
               'All Categories',
+              style: TextStyle(
+                color: kOffWhite,
+              ),
             ),
             pinned: false,
             floating: true,

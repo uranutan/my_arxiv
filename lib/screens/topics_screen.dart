@@ -83,7 +83,7 @@ class _TopicsScreenState extends State<TopicsScreen> {
     }
 
     return Scaffold(
-      backgroundColor: kAccentRed,
+      backgroundColor: kWineRed,
       floatingActionButton: FloatingActionButton(
         key: _addButton,
         child: Icon(
