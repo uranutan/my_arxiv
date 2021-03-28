@@ -48,14 +48,13 @@ class _SearchBarState extends State<SearchBar> {
         hintStyle: kSearchTextStyle,
         enabled: true,
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: kArXivBlack, width: 0.0),
+          borderSide: BorderSide(color: Colors.white12, width: 0.0),
           borderRadius: BorderRadius.circular(10.0),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: kOpaqueWhite, width: 1.0),
           borderRadius: BorderRadius.circular(10.0),
         ),
-        focusColor: Colors.white54,
         contentPadding: EdgeInsets.symmetric(vertical: 1.0, horizontal: 10.0),
       ),
     );
