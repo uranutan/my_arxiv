@@ -83,13 +83,13 @@ class _TopicsScreenState extends State<TopicsScreen> {
     }
 
     return Scaffold(
-      backgroundColor: kArXivRed,
+      backgroundColor: kAccentRed,
       floatingActionButton: FloatingActionButton(
         key: _addButton,
         child: Icon(
           Icons.add,
         ),
-        backgroundColor: kArXivRed,
+        backgroundColor: kAccentRed,
         onPressed: () {
           Navigator.push(
             context,
@@ -110,35 +110,39 @@ class _MyTopicContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Padding(
-        padding: const EdgeInsets.only(left: 30.0, top: 50.0),
-        child: Text(
-          'My arXiv',
-          style: kTextStyleHeading,
-        ),
-      ),
-      SizedBox(height: emptySpace),
-      Expanded(
-        child: Container(
-          child: MyTopicsReorderableArea(),
-          padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
-          decoration: BoxDecoration(
-            color: kOffWhite,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20.0),
-              topRight: Radius.circular(20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 30.0, top: 50.0),
+            child: Text(
+              'My arXiv',
+              style: kTextStyleHeading,
             ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black26,
-                blurRadius: 3.0,
-                spreadRadius: 3.0,
-              ),
-            ],
           ),
-        ),
-      )
-    ]));
+          SizedBox(height: emptySpace),
+          Expanded(
+            child: Container(
+              child: MyTopicsReorderableArea(),
+              padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
+              decoration: BoxDecoration(
+                color: kOffWhite,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20.0),
+                  topRight: Radius.circular(20.0),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 3.0,
+                    spreadRadius: 3.0,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

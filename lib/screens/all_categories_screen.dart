@@ -24,7 +24,7 @@ class AllCategoriesScreen extends StatelessWidget {
             floating: true,
             snap: false,
             shadowColor: kArXivBlack,
-            backgroundColor: kArXivRed,
+            backgroundColor: kWineRed,
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(

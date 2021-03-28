@@ -71,7 +71,7 @@ class _PaperListScreenState extends State<PaperListScreen> {
     displaySliverList.addAll(turnPaperListToSlivers(paperList));
 
     return Scaffold(
-      backgroundColor: kMoreClassyRed,
+      backgroundColor: kAccentRed,
       body: SafeArea(
         child: Column(
           children: [
@@ -102,7 +102,7 @@ class _PaperListScreenState extends State<PaperListScreen> {
               height: isLoading ? 50.0 : 0,
               child: Center(
                 child: CircularProgressIndicator(
-                  backgroundColor: Colors.white,
+                  backgroundColor: kOffWhite,
                 ),
               ),
             ),

@@ -20,24 +20,32 @@ class OptionalField extends StatelessWidget {
               style: TextStyle(
                 color: kArXivBlack,
                 fontSize: 11.0,
+                fontWeight: FontWeight.w500,
               ),
             ),
             Expanded(
-                child: arxivRef == 'DOI' && value.isNotEmpty
-                    ? GestureDetector(
-                        onTap: () {
-                          String url = 'https://dx.doi.org/$value';
-                          launchURL(url);
-                        },
-                        child: Text('$value',
-                            style: TextStyle(
-                                color: kArXivBlack,
-                                fontSize: 11.0,
-                                fontStyle: FontStyle.italic,
-                                decoration: TextDecoration.underline)),
-                      )
-                    : Text('$value',
-                        style: TextStyle(color: kArXivBlack, fontSize: 11.0))),
+              child: arxivRef == 'DOI' && value.isNotEmpty
+                  ? GestureDetector(
+                      onTap: () {
+                        String url = 'https://dx.doi.org/$value';
+                        launchURL(url);
+                      },
+                      child: Text('$value',
+                          style: TextStyle(
+                              color: kArXivBlack,
+                              fontSize: 11.0,
+                              fontStyle: FontStyle.italic,
+                              decoration: TextDecoration.underline)),
+                    )
+                  : Text(
+                      '$value',
+                      style: TextStyle(
+                        color: kArXivBlack,
+                        fontSize: 11.0,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+            ),
           ],
         ),
         SizedBox(height: 5.0)

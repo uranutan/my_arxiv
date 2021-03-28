@@ -14,7 +14,7 @@ class StickyHeaderSliverList extends StatelessWidget {
     return SliverStickyHeader(
         header: Container(
           decoration: BoxDecoration(
-            color: kMoreClassyRed,
+            color: kAccentRed,
             boxShadow: [
               BoxShadow(
                 color: kArXivBlack,
@@ -28,9 +28,9 @@ class StickyHeaderSliverList extends StatelessWidget {
             child: Text(
               heading,
               style: TextStyle(
-                  color: Colors.white,
+                  color: kOffWhite,
                   fontSize: 15.0,
-                  fontWeight: FontWeight.bold),
+                  fontWeight: FontWeight.w600),
             ),
           ),
         ),

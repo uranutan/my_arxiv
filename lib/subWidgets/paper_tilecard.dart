@@ -16,6 +16,7 @@ class PaperTileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: kOffWhite,
       elevation: 2.0,
       margin: EdgeInsets.symmetric(vertical: 1.0, horizontal: 5.0),
       child: ListTile(
@@ -34,16 +35,16 @@ class PaperTileCard extends StatelessWidget {
               paper.formattedTitle,
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: kArXivBlack,
                   fontSize: 15.0),
             ),
             SizedBox(height: 2.0),
             Text(
               paper.displayAuthorsLong,
               style: TextStyle(
-                color: kArXivBlue,
-                fontSize: 14.0,
-              ),
+                  color: kArXivBlue,
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.w600),
             ),
           ],
         ),

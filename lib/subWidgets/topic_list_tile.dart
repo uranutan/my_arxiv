@@ -18,13 +18,14 @@ class TopicListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shadowColor: kArXivRed,
+      shadowColor: kWineRed,
+      color: kOffWhite,
       elevation: 5.0,
       //TODO: onSelect, can I get rid of the shadow
       child: ListTile(
         title: Text(
           '${topic.minorTitle}',
-          style: TextStyle(fontSize: 17.0),
+          style: kTextListTileHeading,
         ),
         subtitle: Text('${topic.subjectCode}'),
         dense: true,

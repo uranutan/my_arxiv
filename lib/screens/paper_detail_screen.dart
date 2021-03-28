@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:my_arxiv/models/constants.dart';
 import '../models/paper.dart';
 import 'package:share/share.dart';
@@ -14,22 +15,32 @@ class PaperDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final String pdfURL = tappedPaper.pdfLink();
     return Scaffold(
+      backgroundColor: kOffWhite,
       appBar: AppBar(
         title: Center(
             child: Text(
           "arXiv:${tappedPaper.arXivIDShort}",
-          style: TextStyle(fontSize: 18.0),
+          style: TextStyle(
+            fontSize: 18.0,
+            color: kOffWhite,
+          ),
         )),
         actions: [
           IconButton(
-            icon: Icon(Icons.picture_as_pdf),
+            icon: Icon(
+              Icons.picture_as_pdf,
+              color: kOffWhite,
+            ),
             onPressed: () {
               launchURL(pdfURL);
             },
           ),
           IconButton(
             key: _shareButton,
-            icon: Icon(Icons.share),
+            icon: Icon(
+              Icons.share,
+              color: kOffWhite,
+            ),
             onPressed: () {
               final RenderBox box =
                   _shareButton.currentContext.findRenderObject();
@@ -70,7 +81,7 @@ class PaperDetailScreen extends StatelessWidget {
                       tappedPaper.formattedTitle,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: kArXivBlack,
                         fontSize: 20.0,
                       ),
                     ),
@@ -102,7 +113,7 @@ class PaperDetailScreen extends StatelessWidget {
                 Text(
                   'Abstract',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: kArXivBlack,
                     fontSize: 15.0,
                     fontWeight: FontWeight.bold,
                   ),
@@ -111,8 +122,9 @@ class PaperDetailScreen extends StatelessWidget {
                 Text(
                   tappedPaper.formattedAbstract,
                   style: TextStyle(
-                    color: Colors.black,
+                    color: kArXivBlack,
                     fontSize: 14.0,
+                    fontWeight: FontWeight.w400,
                   ),
                   textAlign: TextAlign.left,
                 ),

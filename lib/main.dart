@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           //TODO: font type for the entire project
 
-          primaryColor: kMoreClassyRed,
-          accentColor: kArXivRed,
+          primaryColor: kAccentRed,
+          accentColor: kAccentRed,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: TopicsScreen(),
