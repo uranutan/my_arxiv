@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import '../models/constants.dart';
 
 class SearchBar extends StatefulWidget {
-  SearchBar(this.displayText);
-  final String displayText;
+  SearchBar(this.subjectCode);
+  final String subjectCode;
 
   @override
   _SearchBarState createState() => _SearchBarState();
@@ -34,28 +34,29 @@ class _SearchBarState extends State<SearchBar> {
       style: kSearchTextStyle,
       controller: searchController,
       decoration: InputDecoration(
-        suffixIcon: IconButton(
-          icon: Icon(
+        suffixIcon: InkWell(
+          customBorder: CircleBorder(),
+          onTap: () {
+            print("something");
+          },
+          child: Icon(
             Icons.search_sharp,
             color: kOpaqueWhite,
-            size: 20.0,
+            size: 25.0,
           ),
-          onPressed: () {
-            print("searching...");
-          },
         ),
-        hintText: 'search in ${widget.displayText}',
+        hintText: 'Search in ${widget.subjectCode}',
         hintStyle: kSearchTextStyle,
         enabled: true,
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.white12, width: 0.0),
-          borderRadius: BorderRadius.circular(10.0),
+          borderSide: BorderSide(color: Colors.white38, width: 0.0),
+          borderRadius: BorderRadius.circular(25.0),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: kOpaqueWhite, width: 1.0),
-          borderRadius: BorderRadius.circular(10.0),
+          borderSide: BorderSide(color: kOffWhite, width: 1.0),
+          borderRadius: BorderRadius.circular(15.0),
         ),
-        contentPadding: EdgeInsets.symmetric(vertical: 1.0, horizontal: 10.0),
+        contentPadding: EdgeInsets.only(left: 15.0),
       ),
     );
   }

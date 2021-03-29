@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_arxiv/models/constants.dart';
 import '../models/paper.dart';
-import '../services/http_request.dart';
+import "../services/ArxivPaperBloc.dart";
 import '../subWidgets/sticky_header_sliver_list.dart';
 import '../subWidgets/sliver_topic_app_bar.dart';
 import '../models/topic.dart';
@@ -17,16 +17,16 @@ class PaperListScreen extends StatefulWidget {
   _PaperListScreenState createState() => _PaperListScreenState();
 }
 
-//TODO: swipe to pop doesn't work for Android
 class _PaperListScreenState extends State<PaperListScreen> {
   List<Paper> paperList = [];
   bool isLoading = true;
-  int page = 0;
+  var bloc;
 
   @override
   void initState() {
     super.initState();
-    _loadNextPage();
+    bloc = ArxivPaperBloc(widget.topic.subjectCode);
+    _loadNextPage(bloc);
   }
 
   List<Widget> turnPaperListToSlivers(List<Paper> paperList) {
@@ -50,18 +50,20 @@ class _PaperListScreenState extends State<PaperListScreen> {
     return allSliverList;
   }
 
-  Future _loadNextPage() async {
-    List<Paper> nextPage =
-        await fetchSubjectCode(widget.topic.subjectCode, page);
+  Future _loadNextPage(bloc) async {
+    List<Paper> nextPage = await bloc.fetchSubjectCode();
+    bool isEnd = nextPage == null ? true : false;
 
-    if (this.mounted) {
+    if (this.mounted && !isEnd) {
       setState(() {
         paperList.addAll(nextPage);
         isLoading = false;
-        page++;
       });
     }
-    //TODO: dealing with end of the list
+    if (isEnd) {
+      //TODO: get a snackbar to say end of the list/
+      isLoading = false;
+    }
   }
 
   @override
@@ -92,7 +94,7 @@ class _PaperListScreenState extends State<PaperListScreen> {
                         isLoading = true;
                       });
                     }
-                    _loadNextPage();
+                    _loadNextPage(bloc);
                   }
                   return true;
                 },

@@ -5,7 +5,7 @@ const kArXivBlack = Color(0xFF1b1717);
 const kArXivBlue = Color(0xFF23689b); //
 const kArXivGrey = Color(0xFF424242); //
 const kOffWhite = Color(0xFFeeebdd);
-const kOpaqueWhite = Colors.white38;
+const kOpaqueWhite = Colors.white54;
 
 const kPeachRed = Color(0xFFdd5954);
 
