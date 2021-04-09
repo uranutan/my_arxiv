@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:my_arxiv/models/constants.dart';
 import '../models/paper.dart';
 import "../services/ArxivPaperBloc.dart";
-import '../subWidgets/sticky_header_sliver_list.dart';
 import '../subWidgets/sliver_topic_app_bar.dart';
 import '../models/topic.dart';
+import '../services/myFunctions.dart';
 
 //Main Class: Future Builder
 class PaperListScreen extends StatefulWidget {
@@ -29,27 +29,6 @@ class _PaperListScreenState extends State<PaperListScreen> {
     _loadNextPage(bloc);
   }
 
-  List<Widget> turnPaperListToSlivers(List<Paper> paperList) {
-    var dateList =
-        paperList.map((paper) => paper.neatPublishDate).toSet().toList();
-
-    var allSliverList = dateList.map((date) {
-      List<Paper> subPaperList =
-          paperList.where((paper) => paper.neatPublishDate == date).toList();
-
-      var numberOfSubmissions = subPaperList.length;
-
-      String dateHeading = '$numberOfSubmissions submitted on $date';
-      if (date == dateList.last) {
-        dateHeading = 'submitted on $date';
-      }
-
-      return StickyHeaderSliverList(dateHeading, subPaperList);
-    }).toList();
-
-    return allSliverList;
-  }
-
   Future _loadNextPage(bloc) async {
     List<Paper> nextPage = await bloc.fetchSubjectCode();
     bool isEnd = nextPage == null ? true : false;
@@ -68,7 +47,9 @@ class _PaperListScreenState extends State<PaperListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> displaySliverList = [SliverTopicAppBar(widget.topic)];
+    List<Widget> displaySliverList = [
+      SliverTopicAppBar(widget.topic.minorTitle)
+    ];
 
     displaySliverList.addAll(turnPaperListToSlivers(paperList));
 

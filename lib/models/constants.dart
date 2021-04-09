@@ -40,6 +40,6 @@ const kTextListTileHeading = TextStyle(
 );
 const kSearchTextStyle = TextStyle(
   color: kOpaqueWhite,
-  fontWeight: FontWeight.w300,
-  fontSize: 12.0,
+  fontWeight: FontWeight.w500,
+  fontSize: 17.0,
 );

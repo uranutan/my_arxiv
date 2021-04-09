@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'topic.dart';
 import 'package:flutter/foundation.dart';
-
 import '../services/local_storage.dart';
 
 class TopicsModel extends ChangeNotifier {

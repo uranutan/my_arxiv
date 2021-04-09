@@ -9,6 +9,7 @@ class ArxivPaperBloc {
   int totalNumber = 0;
   String subjectCode;
   bool reachTheEnd = false;
+
   var client = new http.Client();
 
   ArxivPaperBloc(this.subjectCode);
@@ -47,12 +48,20 @@ class ArxivPaperBloc {
 
     //TODO: need to handle all these exceptions.
     //TODO: ResponseState : arXiv return error in first Entry tag summary and link
+    //TODO: handle 0 search result
   }
 
   Future<dynamic> _getPapers(String subCode, int startPage) async {
     var url =
         "http://export.arxiv.org/api/query?search_query=cat:$subCode&start=${startPage * 100}"
         "&max_results=100&sortBy=submittedDate&sortOrder=descending";
+
+    // if (searchTerm != null) {
+    //   String queryAll = searchTerm.split(" ").join('+AND+');
+    //   url =
+    //       "http://export.arxiv.org/api/query?search_query=all:%28$queryAll%29&start=${startPage * 100}"
+    //       "&max_results=100&sortBy=submittedDate&sortOrder=descending";
+    // }
 
     // var url =
     //     "http://export.arxiv.org/api/query?search_query=cat:math.pr+AND+all:%28jesper+AND+ipsen%29"

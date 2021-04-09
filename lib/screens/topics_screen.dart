@@ -10,7 +10,7 @@ import '../services/local_storage.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'intro_screen.dart';
-import '../subWidgets/job_board.dart';
+import '../subWidgets/search_bar.dart';
 
 class TopicsScreen extends StatefulWidget {
   @override
@@ -71,7 +71,7 @@ class _TopicsScreenState extends State<TopicsScreen> {
     final int topicsLength = Provider.of<TopicsModel>(context).listLength;
     List<Widget> stackList = [
       // JobBoard(),
-      _MyTopicContent(50.0), //80
+      _MyTopicContent(),
     ];
 
     if (firstSeen && topicsLength == 0) {
@@ -103,10 +103,6 @@ class _TopicsScreenState extends State<TopicsScreen> {
 }
 
 class _MyTopicContent extends StatelessWidget {
-  _MyTopicContent(this.emptySpace);
-
-  final double emptySpace;
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -120,7 +116,12 @@ class _MyTopicContent extends StatelessWidget {
               style: kTextStyleHeading,
             ),
           ),
-          SizedBox(height: emptySpace),
+          SizedBox(height: 15.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            child: SearchBar(),
+          ),
+          SizedBox(height: 15.0),
           Expanded(
             child: Container(
               child: MyTopicsReorderableArea(),

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import '../models/constants.dart';
+import '../screens/search_screen.dart';
 
 class SearchBar extends StatefulWidget {
-  SearchBar(this.subjectCode);
-  final String subjectCode;
-
   @override
   _SearchBarState createState() => _SearchBarState();
 }
@@ -37,26 +35,33 @@ class _SearchBarState extends State<SearchBar> {
         suffixIcon: InkWell(
           customBorder: CircleBorder(),
           onTap: () {
-            print("something");
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    SearchScreen(searchTerm: searchController.text),
+              ),
+            );
           },
           child: Icon(
             Icons.search_sharp,
-            color: kOpaqueWhite,
-            size: 25.0,
+            color: kOffWhite,
+            size: 30.0,
           ),
         ),
-        hintText: 'Search in ${widget.subjectCode}',
+        hintText: 'Search Keywords',
         hintStyle: kSearchTextStyle,
+        //TODO: focused textStyle?
         enabled: true,
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Colors.white38, width: 0.0),
           borderRadius: BorderRadius.circular(25.0),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: kOffWhite, width: 1.0),
-          borderRadius: BorderRadius.circular(15.0),
+          borderSide: BorderSide(color: kOffWhite, width: 2.0),
+          borderRadius: BorderRadius.circular(25.0),
         ),
-        contentPadding: EdgeInsets.only(left: 15.0),
+        contentPadding: EdgeInsets.only(left: 25.0),
       ),
     );
   }
