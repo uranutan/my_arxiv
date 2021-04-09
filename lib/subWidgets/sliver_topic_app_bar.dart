@@ -11,10 +11,9 @@ class SliverTopicAppBar extends StatelessWidget {
       flexibleSpace: FlexibleSpaceBar(
         titlePadding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 15.0),
         centerTitle: true,
-        title: Container(
-          height: 36.0,
-          width: double.infinity,
-          child: Text(heading),
+        title: Text(
+          '$heading',
+          softWrap: true,
         ),
       ),
       floating: true,
@@ -23,4 +22,3 @@ class SliverTopicAppBar extends StatelessWidget {
     );
   }
 }
-// search in ${topic.minorTitle}
