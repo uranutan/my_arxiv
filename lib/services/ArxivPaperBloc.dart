@@ -32,7 +32,6 @@ class ArxivPaperBloc {
       url = '$baseURL$querySubjectCat&$sorting';
     }
 
-    print(url);
     return url;
   }
 

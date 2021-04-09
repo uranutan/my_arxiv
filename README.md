@@ -17,7 +17,7 @@ This app brings delight in interacting with arXiv.org and keeping up with prepri
 
 -  Version 3.0.0 (18 Mar 2021)
         + remove job board head
-        + add search function under each topic
+        + add search function 
         + change in color theme including icons
 
 
@@ -26,7 +26,6 @@ This app brings delight in interacting with arXiv.org and keeping up with prepri
         + prompts for leaving reviews and ratings
         + authors link to papers in all listed categories of a particular paper
         + Job Board: add Math Jobs RSS to job board 
-        + add search function
         + save favorite papers
          
         
