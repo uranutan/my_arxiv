@@ -8,18 +8,38 @@ class ArxivPaperBloc {
   int page = 0;
   int totalNumber = 0;
   String subjectCode;
+  String searchTerm;
   bool reachTheEnd = false;
 
   var client = new http.Client();
 
-  ArxivPaperBloc(this.subjectCode);
+  ArxivPaperBloc({this.subjectCode, this.searchTerm});
 
   String openSearchURI = "http://a9.com/-/spec/opensearch/1.1/";
   String arxivURI = "http://arxiv.org/schemas/atom";
+  String baseURL = "http://export.arxiv.org/api/query?search_query=";
+
+  String fetchURLString(String subCode, int startPage, String searchTerm) {
+    String sorting =
+        "start=${startPage * 100}&max_results=100&sortBy=submittedDate&sortOrder=descending";
+    String querySubjectCat = "cat:$subCode";
+    String url;
+    if (searchTerm != null) {
+      String queryAll = searchTerm.split(" ").join('+AND+');
+      String querySearch = "all:%28$queryAll%29";
+      url = '$baseURL$querySearch&$sorting';
+    } else {
+      url = '$baseURL$querySubjectCat&$sorting';
+    }
+
+    print(url);
+    return url;
+  }
 
   Future<List<Paper>> fetchSubjectCode() async {
+    String urlString = fetchURLString(subjectCode, page, searchTerm);
     if (!reachTheEnd) {
-      final response = await _getPapers(subjectCode, page);
+      final response = await _getPapers(urlString);
 
       if (response is http.Response) {
         if (response.statusCode == 200) {
@@ -38,6 +58,7 @@ class ArxivPaperBloc {
         }
       } else if (response is String) {
         throw Exception(response);
+        //Unhandled Exception: Exception: Connection closed before full header was received
       } else {
         throw Exception("Fail to load data from arXiv. Please try again.");
       }
@@ -51,22 +72,7 @@ class ArxivPaperBloc {
     //TODO: handle 0 search result
   }
 
-  Future<dynamic> _getPapers(String subCode, int startPage) async {
-    var url =
-        "http://export.arxiv.org/api/query?search_query=cat:$subCode&start=${startPage * 100}"
-        "&max_results=100&sortBy=submittedDate&sortOrder=descending";
-
-    // if (searchTerm != null) {
-    //   String queryAll = searchTerm.split(" ").join('+AND+');
-    //   url =
-    //       "http://export.arxiv.org/api/query?search_query=all:%28$queryAll%29&start=${startPage * 100}"
-    //       "&max_results=100&sortBy=submittedDate&sortOrder=descending";
-    // }
-
-    // var url =
-    //     "http://export.arxiv.org/api/query?search_query=cat:math.pr+AND+all:%28jesper+AND+ipsen%29"
-    //     "&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending";
-
+  Future<dynamic> _getPapers(String url) async {
     try {
       var response = await client.get(url);
       return response;

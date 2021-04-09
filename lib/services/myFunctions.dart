@@ -13,14 +13,13 @@ void launchURL(String url) async {
   }
 }
 
-List<Widget> turnPaperListToSlivers(List<Paper> paperList) {
+List<Widget> turnPaperListToSlivers({List<Paper> paperList}) {
   var dateList =
       paperList.map((paper) => paper.neatPublishDate).toSet().toList();
 
   var allSliverList = dateList.map((date) {
     List<Paper> subPaperList =
         paperList.where((paper) => paper.neatPublishDate == date).toList();
-
     var numberOfSubmissions = subPaperList.length;
 
     String dateHeading = '$numberOfSubmissions submitted on $date';

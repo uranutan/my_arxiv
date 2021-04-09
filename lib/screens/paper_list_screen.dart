@@ -25,11 +25,11 @@ class _PaperListScreenState extends State<PaperListScreen> {
   @override
   void initState() {
     super.initState();
-    bloc = ArxivPaperBloc(widget.topic.subjectCode);
+    bloc = ArxivPaperBloc(subjectCode: widget.topic.subjectCode);
     _loadNextPage(bloc);
   }
 
-  Future _loadNextPage(bloc) async {
+  Future _loadNextPage(ArxivPaperBloc bloc) async {
     List<Paper> nextPage = await bloc.fetchSubjectCode();
     bool isEnd = nextPage == null ? true : false;
 
@@ -51,7 +51,7 @@ class _PaperListScreenState extends State<PaperListScreen> {
       SliverTopicAppBar(widget.topic.minorTitle)
     ];
 
-    displaySliverList.addAll(turnPaperListToSlivers(paperList));
+    displaySliverList.addAll(turnPaperListToSlivers(paperList: paperList));
 
     return Scaffold(
       backgroundColor: kWineRed,
