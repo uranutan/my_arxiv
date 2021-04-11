@@ -111,13 +111,13 @@ class _MyTopicContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 30.0, top: 50.0),
+            padding: const EdgeInsets.only(left: 30.0, top: 30.0),
             child: Text(
               'My arXiv',
               style: kTextStyleHeading,
             ),
           ),
-          SizedBox(height: 15.0),
+          SizedBox(height: 10.0),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: SearchBar(),

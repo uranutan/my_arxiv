@@ -58,7 +58,6 @@ class TopicListTile extends StatelessWidget {
         ),
         onTap: () {
           showList(context, topic);
-//                  topicsModel.updateTopicStatus(topic);
         },
       ),
     );

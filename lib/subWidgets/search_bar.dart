@@ -10,6 +10,8 @@ class SearchBar extends StatefulWidget {
 class _SearchBarState extends State<SearchBar> {
   final searchController = TextEditingController();
   bool _isEmpty = false;
+  final focusNode = FocusNode();
+
   @override
   void initState() {
     super.initState();
@@ -25,6 +27,8 @@ class _SearchBarState extends State<SearchBar> {
     setState(() {
       searchController.text.isEmpty ? _isEmpty = true : _isEmpty = false;
     });
+    focusNode.unfocus();
+
     if (!_isEmpty) {
       Navigator.push(
         context,
@@ -43,6 +47,7 @@ class _SearchBarState extends State<SearchBar> {
       cursorColor: kOffWhite,
       autocorrect: false,
       enableSuggestions: false,
+      focusNode: focusNode,
       onSubmitted: (String searchValue) {
         handleSearch();
       },
@@ -59,21 +64,21 @@ class _SearchBarState extends State<SearchBar> {
           ),
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(25.0),
+          borderRadius: BorderRadius.circular(15.0),
         ),
         hintText: 'Search Keywords',
         hintStyle: kSearchTextStyle,
         errorText: _isEmpty ? "Cannot Be Empty" : null,
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Colors.white38, width: 1.0),
-          borderRadius: BorderRadius.circular(25.0),
+          borderRadius: BorderRadius.circular(15.0),
         ),
         //TODO: focused textStyle?
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: kOffWhite, width: 2.0),
-          borderRadius: BorderRadius.circular(25.0),
+          borderRadius: BorderRadius.circular(15.0),
         ),
-        contentPadding: EdgeInsets.only(left: 25.0),
+        contentPadding: EdgeInsets.only(left: 20.0),
       ),
     );
   }
