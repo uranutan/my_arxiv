@@ -25,7 +25,7 @@ class ArxivPaperBloc {
     String querySubjectCat = "cat:$subCode";
     String url;
     if (searchTerm != null) {
-      String queryAll = searchTerm.split(" ").join('+AND+');
+      String queryAll = searchTerm.trim().split(" ").join('+AND+');
       String querySearch = "all:%28$queryAll%29";
       url = '$baseURL$querySearch&$sorting';
     } else {
@@ -64,6 +64,7 @@ class ArxivPaperBloc {
     } else {
       print("You have reached the end of the list.");
       // throw Exception("You have reached the end of the list.");
+      //TODO: need to end with a return statement.
     }
 
     //TODO: need to handle all these exceptions.

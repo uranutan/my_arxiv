@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:my_arxiv/models/constants.dart';
 import '../models/paper.dart';
 import 'package:share/share.dart';

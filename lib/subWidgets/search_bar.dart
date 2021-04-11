@@ -9,11 +9,10 @@ class SearchBar extends StatefulWidget {
 
 class _SearchBarState extends State<SearchBar> {
   final searchController = TextEditingController();
-
+  bool _isEmpty = false;
   @override
   void initState() {
     super.initState();
-    searchController.addListener(_printLatestValue);
   }
 
   @override
@@ -22,8 +21,18 @@ class _SearchBarState extends State<SearchBar> {
     super.dispose();
   }
 
-  _printLatestValue() {
-    print('${searchController.text}');
+  void handleSearch() {
+    setState(() {
+      searchController.text.isEmpty ? _isEmpty = true : _isEmpty = false;
+    });
+    if (!_isEmpty) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SearchScreen(searchTerm: searchController.text),
+        ),
+      );
+    }
   }
 
   @override
@@ -31,17 +40,17 @@ class _SearchBarState extends State<SearchBar> {
     return TextField(
       style: kSearchTextStyle,
       controller: searchController,
+      cursorColor: kOffWhite,
+      autocorrect: false,
+      enableSuggestions: false,
+      onSubmitted: (String searchValue) {
+        handleSearch();
+      },
       decoration: InputDecoration(
         suffixIcon: InkWell(
           customBorder: CircleBorder(),
           onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) =>
-                    SearchScreen(searchTerm: searchController.text),
-              ),
-            );
+            handleSearch();
           },
           child: Icon(
             Icons.search_sharp,
@@ -49,14 +58,17 @@ class _SearchBarState extends State<SearchBar> {
             size: 30.0,
           ),
         ),
-        hintText: 'Search Keywords',
-        hintStyle: kSearchTextStyle,
-        //TODO: focused textStyle?
-        enabled: true,
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.white38, width: 0.0),
+        border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
         ),
+        hintText: 'Search Keywords',
+        hintStyle: kSearchTextStyle,
+        errorText: _isEmpty ? "Cannot Be Empty" : null,
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.white38, width: 1.0),
+          borderRadius: BorderRadius.circular(25.0),
+        ),
+        //TODO: focused textStyle?
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: kOffWhite, width: 2.0),
           borderRadius: BorderRadius.circular(25.0),
