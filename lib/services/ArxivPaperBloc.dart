@@ -17,7 +17,7 @@ class ArxivPaperBloc {
 
   String openSearchURI = "http://a9.com/-/spec/opensearch/1.1/";
   String arxivURI = "http://arxiv.org/schemas/atom";
-  String baseURL = "http://export.arxiv.org/api/query?search_query=";
+  String baseURL = "https://export.arxiv.org/api/query?search_query=";
 
   String fetchURLString(String subCode, int startPage, String searchTerm) {
     String sorting =

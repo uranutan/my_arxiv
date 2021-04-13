@@ -68,7 +68,7 @@ class _SearchBarState extends State<SearchBar> {
         ),
         hintText: 'Search Keywords',
         hintStyle: kSearchTextStyle,
-        errorText: _isEmpty ? "Cannot Be Empty" : null,
+        errorText: _isEmpty ? "Cannot be empty" : null,
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Colors.white38, width: 1.0),
           borderRadius: BorderRadius.circular(15.0),
