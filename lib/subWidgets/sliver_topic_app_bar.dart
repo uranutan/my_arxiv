@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_arxiv/models/constants.dart';
 
 class SliverTopicAppBar extends StatelessWidget {
   SliverTopicAppBar(this.heading);
@@ -14,6 +15,7 @@ class SliverTopicAppBar extends StatelessWidget {
         title: Text(
           '$heading',
           softWrap: true,
+          style: kTextStyleCategory,
         ),
       ),
       floating: true,

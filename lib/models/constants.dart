@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const kWineRed = Color(0xFF630000);
+const kWineRed = Color(0xFF630000); //icon color?#5B0000
 const kArXivBlack = Color(0xFF1b1717);
 const kArXivBlue = Color(0xFF23689b); //
 const kArXivGrey = Color(0xFF424242); //
@@ -19,7 +19,11 @@ const kDropDownMenuTextStyle = TextStyle(
 const kTextStyleHeading = TextStyle(
   fontSize: 40.0,
   color: kOffWhite,
-  fontWeight: FontWeight.bold,
+  fontWeight: FontWeight.w300,
+);
+const kTextStyleCategory = TextStyle(
+  color: kOffWhite,
+  fontWeight: FontWeight.w300,
 );
 
 const kTextStylePaperListRow1 = TextStyle(

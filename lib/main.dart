@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         title: 'My arXiv',
         theme: ThemeData(
           //TODO: font type for the entire project
-
+          fontFamily: 'OpenSans',
           primaryColor: kWineRed,
           accentColor: kAccentRed,
           visualDensity: VisualDensity.adaptivePlatformDensity,
