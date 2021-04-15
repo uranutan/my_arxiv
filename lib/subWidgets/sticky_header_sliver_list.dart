@@ -30,7 +30,7 @@ class StickyHeaderSliverList extends StatelessWidget {
               style: TextStyle(
                   color: kOffWhite,
                   fontSize: 15.0,
-                  fontWeight: FontWeight.w600),
+                  fontWeight: FontWeight.w400),
             ),
           ),
         ),
