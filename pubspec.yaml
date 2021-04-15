@@ -2,7 +2,7 @@ name: my_arxiv
 description: A delightful mobile app to keep track of preprints on arXiv.org by topics
 
 publish_to: 'none'
-version: 2.0.0+3
+version: 3.0.0+4
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
