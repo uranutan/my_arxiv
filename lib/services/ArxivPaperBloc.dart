@@ -25,7 +25,14 @@ class ArxivPaperBloc {
     String querySubjectCat = "cat:$subCode";
     String url;
     if (searchTerm != null) {
-      String queryAll = searchTerm.trim().split(" ").join('+AND+');
+      // String queryAll =
+      //     searchTerm.trim().split(" ").map((item) => item.trim()).join('+AND+');
+      String queryAll = searchTerm
+          .trim()
+          .replaceAll(new RegExp(r'\s+'), " ")
+          .split(" ")
+          .join('+AND+');
+      print(queryAll);
       String querySearch = "all:%28$queryAll%29";
       url = '$baseURL$querySearch&$sorting';
     } else {
