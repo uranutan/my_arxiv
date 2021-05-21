@@ -17,13 +17,19 @@ class PaperDetailScreen extends StatelessWidget {
       backgroundColor: kOffWhite,
       appBar: AppBar(
         title: Center(
+          child: GestureDetector(
             child: Text(
-          "arXiv:${tappedPaper.arXivIDShort}",
-          style: TextStyle(
-            fontSize: 18.0,
-            color: kOffWhite,
+              "arXiv:${tappedPaper.arXivIDShort}",
+              style: TextStyle(
+                fontSize: 18.0,
+                color: kOffWhite,
+              ),
+            ),
+            onTap: () {
+              launchURL(tappedPaper.arXivID);
+            },
           ),
-        )),
+        ),
         actions: [
           IconButton(
             icon: Icon(
@@ -46,7 +52,7 @@ class PaperDetailScreen extends StatelessWidget {
 
               Share.share(
                 "${tappedPaper.formattedTitle} @arXiv by ${tappedPaper.displayAuthorsLong}. \n"
-                "${tappedPaper.arXivID}.\n\n"
+                "${tappedPaper.arXivID}\n\n"
                 "Send via 'My arXiv' app. ",
                 subject: 'A nice paper on arXiv ',
                 sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size,

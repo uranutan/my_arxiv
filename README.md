@@ -14,6 +14,10 @@ This app brings delight in interacting with arXiv.org and keeping up with prepri
 
 -   Version 3.0.0 + build 4 (submitted: 18 Mar 2021) + remove job board head + add search function + change in color theme including icons
 
+
+- Version 3.0.1 + build 5 () 
+        + remove punctuation mark after url in the share text
+        + launch article page by tapping the arxiv id on the paper detail screen
 ## Future Coming features
 
         + Version 3.1.0 prompts for leaving reviews and ratings
