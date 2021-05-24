@@ -15,12 +15,13 @@ This app brings delight in interacting with arXiv.org and keeping up with prepri
 -   Version 3.0.0 + build 4 (submitted: 18 Mar 2021) + remove job board head + add search function + change in color theme including icons
 
 
-- Version 3.0.1 + build 5 () 
+- Version 3.0.1 + build 5 (submit: 25 May 2021) 
         + remove punctuation mark after url in the share text
         + launch article page by tapping the arxiv id on the paper detail screen
 ## Future Coming features
 
-        + Version 3.1.0 prompts for leaving reviews and ratings
+        + Version 3.1.0 prompts/permanent links for leaving reviews and ratings
+        + Add share app link/on the app
         + App Analytics (Firebase Analytics: when do users use my app?)
         + Feature: Allow user to save search keyword as a category (shortcut)
         + Feature: Save favorite papers in a folder
