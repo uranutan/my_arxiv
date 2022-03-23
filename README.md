@@ -2,6 +2,9 @@
 
 This app brings delight in interacting with arXiv.org and keeping up with preprints daily in your fields.
 
+Live on [Android Play Store](https://play.google.com/store/apps/details?id=org.yuguang.my_arxiv) and [Apple App Store](https://apps.apple.com/au/app/my-arxiv/id1537953839)
+
+
 ## Version History
 
 -   Version 1.0.0. + initial release for Android.
