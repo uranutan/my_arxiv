@@ -20,9 +20,13 @@ class TopicListTile extends StatelessWidget {
     return Card(
       shadowColor: kWineRed,
       color: kOffWhite,
+      // borderOnForeground: false,
       elevation: 5.0,
       //TODO: onSelect, can I get rid of the shadow
       child: ListTile(
+        // minVerticalPadding: 0.0,
+        // enabled: true,
+        // selectedTileColor: kOffWhite,
         title: Text(
           '${topic.minorTitle}',
           style: kTextListTileHeading,

@@ -70,7 +70,6 @@ class _TopicsScreenState extends State<TopicsScreen> {
   Widget build(BuildContext context) {
     final int topicsLength = Provider.of<TopicsModel>(context).listLength;
     List<Widget> stackList = [
-      // JobBoard(),
       _MyTopicContent(),
     ];
 
@@ -128,7 +127,8 @@ class _MyTopicContent extends StatelessWidget {
               child: MyTopicsReorderableArea(),
               padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
               decoration: BoxDecoration(
-                color: kOffWhite,
+                // backgroundBlendMode:  BlendMode.clear,
+                // color: kOffWhite,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20.0),
                   topRight: Radius.circular(20.0),

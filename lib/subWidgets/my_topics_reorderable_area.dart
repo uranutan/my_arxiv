@@ -20,6 +20,7 @@ class _MyTopicsReorderableAreaState extends State<MyTopicsReorderableArea> {
       myTopics = topicsModel.topicsData;
 
       return ReorderableListView(
+        // clipBehavior: Clip.hardEdge,
         children: [
           for (final topic in myTopics)
             TopicListTile(

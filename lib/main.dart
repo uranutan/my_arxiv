@@ -21,8 +21,15 @@ class MyApp extends StatelessWidget {
           //TODO: font type for the entire project
           fontFamily: 'OpenSans',
           primaryColor: kWineRed,
-          accentColor: kAccentRed,
+          highlightColor: kSoftPink,
+          backgroundColor: kOffWhite,
           visualDensity: VisualDensity.adaptivePlatformDensity,
+          // selectedRowColor: kWineRed,
+          appBarTheme: AppBarTheme(
+              backgroundColor: kWineRed, centerTitle: true),
+          progressIndicatorTheme: ProgressIndicatorThemeData(
+              circularTrackColor: kAccentRed,
+          color: kWineRed)
         ),
         home: TopicsScreen(),
       ),

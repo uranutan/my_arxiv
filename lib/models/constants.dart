@@ -8,7 +8,7 @@ const kOffWhite = Color(0xFFeeebdd);
 const kOpaqueWhite = Colors.white54;
 
 const kPeachRed = Color(0xFFdd5954);
-
+const kSoftPink = Color(0xFFF6E7D8);
 const kAccentRed = Color(0xFF810000);
 
 const kDropDownMenuTextStyle = TextStyle(
