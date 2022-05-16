@@ -22,22 +22,17 @@ Live on [Android Play Store](https://play.google.com/store/apps/details?id=org.y
         + remove punctuation mark after url in the share text
         + launch article page by tapping the arxiv id on the paper detail screen
 
+
+- Version 4.0.0   (May 2022)
+        + add bookmark for favorite papers 
+        + add favorite navigation on front page
+
+
+
 ## Future features (welcome PR)
 
-+ Version 3.1.0 prompts/permanent links for leaving reviews and ratings
++ Feature: Allow user to save search keyword as a category (custom topic)
 
-+ Add share app link/on the app
++ Feature: Open and Save to Folder in-app instead 
 
-+ App Analytics (Firebase)
 
-+ Feature: Allow user to save search keyword as a category (shortcut)
-
-+ Feature: Save favorite papers in a folder
-
-+ Feature: Get notified when new papers got published for that keyword/category : subscribe to keyword or category (Firebase push somehow: a bit more involved)
-
-+ Feature: Authors link to papers in all listed categories of a particular paper
-
-+ Job Board: add Math Jobs RSS to job board
-
-+ Job Board: allow users to submit jobs
