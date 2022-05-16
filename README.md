@@ -5,6 +5,28 @@ This app brings delight in interacting with arXiv.org and keeping up with prepri
 Live on [Android Play Store](https://play.google.com/store/apps/details?id=org.yuguang.my_arxiv) and [Apple App Store](https://apps.apple.com/au/app/my-arxiv/id1537953839)
 
 
+## Run the flutter app
+run 
+```shell
+flutter doctor -v
+```
+to make sure flutter and all required dependencies are installed correctly.
+
+
+**check xcode version**
+`/usr/bin/xcodebuild -version`
+
+
+
+### Run Flutter on Android Studio
+    - Connect device or select emulated device 
+    
+
+### Run CLI
+    - `flutter pub get` to update the packages
+    - `flutter run`
+    
+
 ## Version History
 
 -   Version 1.0.0. + initial release for Android.
