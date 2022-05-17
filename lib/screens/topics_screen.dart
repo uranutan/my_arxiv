@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter/rendering.dart';
 import 'package:my_arxiv/models/constants.dart';
 import 'package:my_arxiv/models/topicsModel.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +11,7 @@ import '../services/local_storage.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'intro_screen.dart';
+import 'bookmarked_screen.dart';
 import '../subWidgets/search_bar.dart';
 
 class TopicsScreen extends StatefulWidget {
@@ -110,10 +112,25 @@ class _MyTopicContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 30.0, top: 30.0),
-            child: Text(
-              'My arXiv',
-              style: kTextStyleHeading,
+            padding: const EdgeInsets.only(left: 30.0, top: 10.0, right:30, bottom:0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  'My arXiv',
+                  style: kTextStyleHeading,
+                ),
+                IconButton(
+                    iconSize: 25,
+                    onPressed: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => BookMarkScreen()),
+                    );
+                },
+                    icon: Icon(Icons.collections_bookmark_sharp, color: kOffWhite)),
+              ],
             ),
           ),
           SizedBox(height: 10.0),

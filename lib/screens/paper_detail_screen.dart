@@ -51,7 +51,6 @@ class _PaperDetailScreenState extends State<PaperDetailScreen> {
             ),
             onPressed: () {
               //TODO: how to change it to bookmark_added
-              print("added to bookmark");
               setState((){
                 isBookmarked = !isBookmarked;
               });

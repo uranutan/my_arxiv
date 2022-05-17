@@ -1,54 +1,26 @@
-// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:my_arxiv/models/constants.dart';
 import '../models/paper.dart';
-import "../services/ArxivPaperBloc.dart";
 import '../subWidgets/sliver_topic_app_bar.dart';
-import '../models/topic.dart';
+import '../models/constants.dart';
 import '../services/myFunctions.dart';
 
-//Main Class: Future Builder
-class PaperListScreen extends StatefulWidget {
-  PaperListScreen({this.topic});
 
-  final Topic topic;
+class BookMarkScreen extends StatefulWidget {
+  const BookMarkScreen({Key key}) : super(key: key);
 
   @override
-  _PaperListScreenState createState() => _PaperListScreenState();
+  _BookMarkScreenState createState() => _BookMarkScreenState();
 }
 
-class _PaperListScreenState extends State<PaperListScreen> {
+class _BookMarkScreenState extends State<BookMarkScreen> {
+
   List<Paper> paperList = [];
   bool isLoading = true;
-  var bloc;
-
-  @override
-  void initState() {
-    super.initState();
-    bloc = ArxivPaperBloc(subjectCode: widget.topic.subjectCode);
-    _loadNextPage(bloc);
-  }
-
-  Future _loadNextPage(ArxivPaperBloc bloc) async {
-    List<Paper> nextPage = await bloc.fetchSubjectCode();
-    bool isEnd = nextPage == null ? true : false;
-
-    if (this.mounted && !isEnd) {
-      setState(() {
-        paperList.addAll(nextPage);
-        isLoading = false;
-      });
-    }
-    if (isEnd) {
-      //TODO: get a snackbar to say end of the list/
-      isLoading = false;
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
     List<Widget> displaySliverList = [
-      SliverTopicAppBar(widget.topic.minorTitle)
+      SliverTopicAppBar("Bookmarked Collection"),
     ];
 
     displaySliverList.addAll(turnPaperListToSlivers(paperList: paperList));
@@ -75,7 +47,6 @@ class _PaperListScreenState extends State<PaperListScreen> {
                         isLoading = true;
                       });
                     }
-                    _loadNextPage(bloc);
                   }
                   return true;
                 },
@@ -95,3 +66,4 @@ class _PaperListScreenState extends State<PaperListScreen> {
     );
   }
 }
+

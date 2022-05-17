@@ -70,7 +70,7 @@ class ArxivPaperBloc {
       }
     } else {
       print("You have reached the end of the list.");
-      // throw Exception("You have reached the end of the list.");
+      throw Exception("You have reached the end of the list.");
       //TODO: need to end with a return statement.
     }
 
