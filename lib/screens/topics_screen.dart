@@ -70,6 +70,7 @@ class _TopicsScreenState extends State<TopicsScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     final int topicsLength = Provider.of<TopicsModel>(context).listLength;
     List<Widget> stackList = [
       _MyTopicContent(),
@@ -126,7 +127,7 @@ class _MyTopicContent extends StatelessWidget {
                     onPressed: (){
                     Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => BookMarkScreen()),
+                        MaterialPageRoute(builder: (context) => CollectionScreen()),
                     );
                 },
                     icon: Icon(Icons.collections_bookmark_sharp, color: kOffWhite)),

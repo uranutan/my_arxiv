@@ -16,7 +16,8 @@ class _MyTopicsReorderableAreaState extends State<MyTopicsReorderableArea> {
   List<Topic> myTopics;
   @override
   Widget build(BuildContext context) {
-    return Consumer<TopicsModel>(builder: (context, topicsModel, child) {
+    return Consumer<TopicsModel>(builder: (context, topicsModel, child)
+    {
       myTopics = topicsModel.topicsData;
 
       return ReorderableListView(

@@ -15,6 +15,7 @@ class TopicsModel extends ChangeNotifier {
     _topicsData = [];
   }
 
+
   List<Topic> get topicsData => _topicsData;
 
   String get topicsJSON {

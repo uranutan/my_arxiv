@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_arxiv/models/papersModel.dart';
 // import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'models/constants.dart';
@@ -31,7 +32,10 @@ class MyApp extends StatelessWidget {
               circularTrackColor: kAccentRed,
           color: kWineRed)
         ),
-        home: TopicsScreen(),
+        home: ChangeNotifierProvider<PapersModel>(
+         create: (context) => PapersModel(),
+         child: TopicsScreen()
+        ),
       ),
     );
   }
