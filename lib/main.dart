@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'OpenSans',
           primaryColor: kWineRed,
           highlightColor: kSoftPink,
-          backgroundColor: kOffWhite,
+          // backgroundColor: kOffWhite,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           // selectedRowColor: kWineRed,
           appBarTheme: AppBarTheme(

@@ -51,6 +51,5 @@ class TopicsModel extends ChangeNotifier {
     writeTopics();
   }
 
-  //TODO: given a subject code return a hashtag topic Label
-  // String topicHashTag(String subjectCode) {}
+
 }

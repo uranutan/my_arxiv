@@ -128,7 +128,7 @@ class _MyTopicContent extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
               decoration: BoxDecoration(
                 // backgroundBlendMode:  BlendMode.clear,
-                // color: kOffWhite,
+                color: kOffWhite,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20.0),
                   topRight: Radius.circular(20.0),
