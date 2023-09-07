@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter/rendering.dart';
 import 'package:my_arxiv/models/constants.dart';
+import 'package:my_arxiv/models/papersModel.dart';
 import 'package:my_arxiv/models/topicsModel.dart';
 import 'package:provider/provider.dart';
 import '../subWidgets/my_topics_reorderable_area.dart';
@@ -11,7 +12,7 @@ import '../services/local_storage.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'intro_screen.dart';
-import 'bookmarked_screen.dart';
+import 'CollectionScreen.dart';
 import '../subWidgets/search_bar.dart';
 
 class TopicsScreen extends StatefulWidget {
@@ -84,23 +85,26 @@ class _TopicsScreenState extends State<TopicsScreen> {
       ]);
     }
 
-    return Scaffold(
-      backgroundColor: kWineRed,
-      resizeToAvoidBottomInset: false,
-      floatingActionButton: FloatingActionButton(
-        key: _addButton,
-        child: Icon(
-          Icons.add,
+    return ChangeNotifierProvider<PapersModel>(
+      create: (context) => PapersModel(),
+      child: Scaffold(
+        backgroundColor: kWineRed,
+        resizeToAvoidBottomInset: false,
+        floatingActionButton: FloatingActionButton(
+          key: _addButton,
+          child: Icon(
+            Icons.add,
+          ),
+          backgroundColor: kAccentRed,
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AllCategoriesScreen()),
+            );
+          },
         ),
-        backgroundColor: kAccentRed,
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => AllCategoriesScreen()),
-          );
-        },
+        body: Stack(children: stackList),
       ),
-      body: Stack(children: stackList),
     );
   }
 }

@@ -32,11 +32,8 @@ class MyApp extends StatelessWidget {
               circularTrackColor: kAccentRed,
           color: kWineRed)
         ),
-        home: ChangeNotifierProvider<PapersModel>(
-         create: (context) => PapersModel(),
-         child: TopicsScreen()
-        ),
-      ),
+        home: TopicsScreen(),
+        )
     );
   }
 }
