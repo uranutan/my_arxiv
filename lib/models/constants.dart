@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-const kWineRed = Color(0xFF630000); //icon color?#5B0000
+const kWineRed = Color(0xFF630000); 
 const kArXivBlack = Color(0xFF1b1717);
-const kArXivBlue = Color(0xFF23689b); //
-const kArXivGrey = Color(0xFF424242); //
+const kArXivBlue = Color(0xFF23689b); 
+const kArXivGrey = Color(0xFF424242); 
 const kOffWhite = Color(0xFFeeebdd);
 const kOpaqueWhite = Colors.white54;
 

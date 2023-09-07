@@ -31,11 +31,11 @@ class _JobBoardState extends State<JobBoard> {
                 // SizedBox(width: 8.0),
                 GestureDetector(
                   onTap: () {
-                    launchURL("https://austms.org.au/phd-randommatrixtheory/");
+                    launchURL("https://austms.org.au/");
                   },
                   child: Text(
-                    'PhD Position in Random Matrix Theory \n'
-                    'University of Melbourne, Australia',
+                    'PhD Position in xxx\n'
+                    'University of XXX',
                     style: TextStyle(
                       fontSize: 14.0,
                       color: kOffWhite,

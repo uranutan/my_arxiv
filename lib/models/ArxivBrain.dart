@@ -1,9 +1,7 @@
 import 'topic.dart';
 
 class ArxivBrain {
-  // 'singleTopics': [
 
-  // ],
   static final Map<String, Map> _allPhysicsTopics = {
     'Astrophysics': {
       'astro-ph.CO': 'Cosmology and Nongalactic Astrophysics',

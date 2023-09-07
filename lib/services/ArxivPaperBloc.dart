@@ -109,7 +109,7 @@ class ArxivPaperBloc {
           .findAllElements('author')
           .map((element) => element.getElement('name').innerText.toString())
           .toList();
-      //TODO: affilication of authors?
+      //TODO: affiliation of authors?
       List<String> categories = [];
       paper.findAllElements('category').forEach((cat) {
         var attr = cat.attributes;
